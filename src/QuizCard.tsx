@@ -10,17 +10,39 @@
 // };
 
 function QuizCard(props: any) {
+  //The difficulty element must have a different color depending on the value of props.difficultyLevel
+  //We must use conditions but it is not possible to use conditions inside JSX
+
   return (
-    <article>
+    <section className="quizCard">
       <div className="logo">
         <img src={props.imagePath} style={{ width: 100, height: 100 }} />
       </div>
       <div>
         <h1>{props.title}</h1>
         <p>{props.description}</p>
-        <span>Difficulty: {props.difficultyLevel}</span>
+        <span
+          style={{
+            backgroundColor:
+              props.difficultyLevel > 4
+                ? "#f8d7da"
+                : props.difficultyLevel > 2
+                ? "#fff3cd"
+                : "#d4edda",
+            color:
+              props.difficultyLevel > 4
+                ? "#721c24"
+                : props.difficultyLevel > 2
+                ? "#856404"
+                : "#155724",
+            padding: "7px",
+            borderRadius: "15px",
+          }}
+        >
+          Difficulty: {props.difficultyLevel}
+        </span>
       </div>
-    </article>
+    </section>
   );
 }
 export default QuizCard;

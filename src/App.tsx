@@ -7,22 +7,31 @@ let listQuizes = [
   {
     imagePath: javascriptLogo,
     title: "Javascript",
-    description: "A Javascript quizz",
+    description: "A Javascript quiz",
     difficultyLevel: 1,
   },
   {
     imagePath: phpLogo,
     title: "PHP",
-    description: "A PHP quizz",
-    difficultyLevel: 1,
+    description: "A PHP quiz",
+    difficultyLevel: 3,
   },
 ];
 
 function App() {
-  let listQuizRender = listQuizes.map((quizz) => (
-    <QuizCard imagePath={quizz.imagePath}></QuizCard>
+  let listQuizRender = listQuizes.map((quiz) => (
+    <QuizCard
+      imagePath={quiz.imagePath}
+      title={quiz.title}
+      description={quiz.description}
+      difficultyLevel={quiz.difficultyLevel}
+    ></QuizCard>
   ));
-  return <>{listQuizRender}</>;
+  return (
+    <>
+      <section>{listQuizRender}</section>
+    </>
+  );
 }
 
 export default App;
