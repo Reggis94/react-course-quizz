@@ -1,5 +1,7 @@
 //IGNORING PROPTYPES AT THIS STAGE OF THE COURSE
 
+import { Link } from "react-router-dom";
+
 // import PropTypes from "prop-types";
 
 // QuizCard.PropTypes = {
@@ -12,7 +14,7 @@
 function QuizCard(props: any) {
   //The difficulty element must have a different color depending on the value of props.difficultyLevel
   //We must use conditions but it is not possible to use conditions inside JSX
-
+  console.log(props);
   return (
     <section className="quizCard">
       <div className="logo">
@@ -41,6 +43,9 @@ function QuizCard(props: any) {
         >
           Difficulty: {props.difficultyLevel}
         </span>
+        <button>
+          <Link to={`/quiz/${props.id}`}>Start Quiz</Link>
+        </button>
       </div>
     </section>
   );
